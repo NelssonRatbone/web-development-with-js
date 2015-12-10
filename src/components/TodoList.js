@@ -1,30 +1,38 @@
 import React from 'react';
 import Todo from './Todo';
 
-const TodoList = props => { //tehdään funktio
+const categoryNames = [
+    'TOIVOTTU',
+    'EHKÄ TULOSSA',
+    'PAKETOITU'
+];
 
-    const { todos, onRemove, onToggle } = props;
+
+const TodoList = ({ todos, onRemove, onToggle, category, onMove }) => {
+
+    const filtered = todos.filter(todo => todo.category === category);
 
     return (
 
-        <div>
-            <h2>TO DOs in my list</h2>
-            <ul>
-                {todos
-                //.filter(todo => todo.done)
-                    .map((todo, i) => {  //enkelisulut tarkoittavat että javascript alkaa, tehdään komponentti
-                    return (
-                     <Todo
-                        key={i}
-                        onToggle={onToggle}
-                        todo={todo}
-                        onRemove={onRemove}  />
-                        );
-                })}
-            </ul>
-        </div>
-    );
+        <div className="flex-item">
+            <h2>{filtered.count()} lahja(a) on {categoryNames[category]}</h2>
 
-};
+
+                {filtered
+                    .map((todo, i) =>
+                        <Todo
+                            key={i}
+                            onToggle={onToggle}
+                            onRemove={onRemove}
+                            onMove={onMove}
+                            todo={todo}
+                        />
+                    )
+                }
+
+        </div>
+    )
+
+}
 
 export default TodoList;

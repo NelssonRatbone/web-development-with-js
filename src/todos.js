@@ -3,23 +3,23 @@ import uuid from 'node-uuid';   //importtaa id-hässäkät
 
 export default List.of(
     {
-        text:'miauuuuu',
+        text:'Money',
         done: false
     },
     {
-        text:'vuhvuh',
+        text:'Honda CR-V',
         done: true
     },
        {
-        text:'örkki',
+        text:'Chocolate',
         done: false
     },
        {
-        text:'turkulaine hevone',
+        text:'A lot of Chocolate',
         done: true
     },
     {
-        text:'joku muu elukka',
+        text:'A cook',
         done: false
     }
 ).map(todo => {

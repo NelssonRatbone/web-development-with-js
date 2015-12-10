@@ -1,18 +1,16 @@
 import { connect } from 'react-redux';
 import TodoApp from '../TodoApp';
-
-import { addTodo } from '../../actions/todo-actions';
-//import * as GuideVideoActions
+import { addTodo , removeTodo , toggleTodo , receiveTodos , saveTodos} from '../../actions/todo-actions';
 
 function mapStateToProps(state) {
     return {
-        todos: state.get('todos')
-    }
+         todos: state.todo.get('todos'),
+    };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        addTodo: todo => dispatch(addTodo(todo))
+        receiveTodos: () => dispatch(receiveTodos()),
     };
 }
 
